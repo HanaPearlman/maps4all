@@ -116,5 +116,25 @@ def run_worker():
         worker = Worker(list(map(Queue, listen)))
         worker.work()
 
+
+@manager.command
+def migrate() :
+    """Checks if a release on github requires a DB migration, 
+        performs the migration. If no errors arise, the updated
+        code is deployed to the heroku app"""
+
+    """If you perform a database migration, you should always use transactions. 
+    A transaction ensures that all migration operations are successful before 
+    committing changes to the database... We suggest using heroku run, rather than release phase, 
+    to correct your schema/data??"""
+
+    """Your database migration script should check whether a database has already been migrated, 
+    before executing a new migration (e.g., does table/column exist, if not add it).??"""
+
+    """Grab an advisory lock. Many popular relational databases, such as Postgres and MySQL, 
+    offer advisory lock functionality, which can be used to prevent concurrent migrations. """
+    print("in migrate, not sure if you're able to see this Hana")
+
+
 if __name__ == '__main__':
     manager.run()
