@@ -133,7 +133,16 @@ def migrate() :
 
     """Grab an advisory lock. Many popular relational databases, such as Postgres and MySQL, 
     offer advisory lock functionality, which can be used to prevent concurrent migrations. """
-    print("in migrate")
+
+    print("in migrate before")
+    admin_email = "pearlmanhana@gmail.com"
+    admin_password = "password"
+    if User.query.filter_by(email=admin_email).first() is None:
+        User.create_confirmed_admin('Hana',
+                                    'Pearlman',
+                                    admin_email,
+                                    admin_password)
+    print("in migrate after")
 
 
 if __name__ == '__main__':
