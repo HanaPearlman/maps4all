@@ -138,8 +138,8 @@ def migrate() :
     admin_email = "pearlmanhana@gmail.com"
     admin_password = "password"
     if User.query.filter_by(email=admin_email).first() is None:
-        User.create_confirmed_admin('Hana',
-                                    'Pearlman',
+        User.create_confirmed_admin('Default',
+                                    'Admin',
                                     admin_email,
                                     admin_password)
     print("in migrate after")
