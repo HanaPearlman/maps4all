@@ -133,7 +133,7 @@ def migrate() :
 
     """Grab an advisory lock. Many popular relational databases, such as Postgres and MySQL, 
     offer advisory lock functionality, which can be used to prevent concurrent migrations. """
-    print("in migrate, not sure if you're able to see this Hana")
+    print("in migrate")
 
 
 if __name__ == '__main__':
